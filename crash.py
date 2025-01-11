@@ -144,9 +144,51 @@ async def ahmatov(ctx):
         await ctx.send("Не найдено ролей для удаления.")
 
 
+@bot.slash_command(name="bio", description="BIO")
+async def info(inter):
+    embed = disnake.Embed(
+        title=f"BIO",
+        color=disnake.Color.blurple()
+    )
+    embed.add_field(name="Описание разраба", value=BOT_DESCRIPTION, inline=False)
+    embed.add_field(name="Где был слит бот", value=PROGRAMMER_NAME, inline=False)
+    embed.add_field(name="Версия", value=BOT_VERSION, inline=False)
+    embed.add_field(name="Кэш сообщений", value=f"{len(bot.cached_messages)} сообщений", inline=False)
+    embed.set_thumbnail(url="") 
+    embed.set_footer(text="Спасибо за использование нашего бота!")
+    await inter.response.send_message(embed=embed)
 
+@bot.event
+async def on_message(message):
+    if bot.user.mentioned_in(message) and not message.author.bot:  
+        embed = disnake.Embed(
+            title=f"BIO",
+            color=disnake.Color.blurple()
+        )
+        embed.add_field(name="Описание разраба", value=BOT_DESCRIPTION, inline=False)
+        embed.add_field(name="Где был слит бот", value=PROGRAMMER_NAME, inline=False)
+        embed.add_field(name="Версия", value=BOT_VERSION, inline=False)
+        embed.add_field(name="Кэш сообщений", value=f"{len(bot.cached_messages)} сообщений", inline=False)
+        embed.set_thumbnail(url="") 
+        embed.set_footer(text="Спасибо за использование нашего бота!")
+        await message.channel.send(embed=embed)
+    await bot.process_commands(message)  
 
-
+@bot.event
+async def on_message(message):
+    if bot.user.mentioned_in(message) and not message.author.bot:  
+        embed = disnake.Embed(
+            title=f"BIO",
+            color=disnake.Color.blurple()
+        )
+        embed.add_field(name="Описание разраба", value=BOT_DESCRIPTION, inline=False)
+        embed.add_field(name="Где был слит бот", value=PROGRAMMER_NAME, inline=False)
+        embed.add_field(name="Версия", value=BOT_VERSION, inline=False)
+        embed.add_field(name="Кэш сообщений", value=f"{len(bot.cached_messages)} сообщений", inline=False)
+        embed.set_thumbnail(url="") 
+        embed.set_footer(text="Спасибо за использование нашего бота!")
+        await message.channel.send(embed=embed)
+    await bot.process_commands(message)  
 
 
 bot.run('') #сюда ваш token от бота
