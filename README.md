@@ -26,3 +26,5 @@ $bio описания бота
 ❤❤❤❤❤ Подключение бота
 
 1. Там очень легко гайд можно найти в гугле или попросить в группе https://t.me/rvgvkk46dev , https://vk.com/modsdev
+
+Сделано командой Tcp Team github.com/tcpteams
